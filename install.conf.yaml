@@ -1,0 +1,11 @@
+- clean: ['~']
+
+- link:
+    ~/.profile: profile
+    ~/.zshrc: zshrc
+    ~/.Xresources: Xresources
+    ~/.config/i3:
+        path: config/i3/
+        create: true
+
+
