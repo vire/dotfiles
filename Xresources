@@ -1,0 +1,6 @@
+! my customisations
+xterm*saveLines: 512
+xterm*faceName: DejaVu Sans Mono:size=12:antialias=false
+xterm*font: 7x13
+*customization: -color
+XTerm*termName:  xterm-256color

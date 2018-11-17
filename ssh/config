@@ -1,0 +1,19 @@
+Host elischer-dt
+  HostName 192.168.10.24
+  User vire
+
+Host dev038
+  HostName 192.168.123.38
+  User root
+
+Host dev048
+  HostName 192.168.123.48
+  User root
+
+Host dev049
+  HostName 192.168.123.49
+  User root
+
+Host raspi
+  HostName 192.168.2.106
+  User pi
