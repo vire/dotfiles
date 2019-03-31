@@ -157,7 +157,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         position top
-        status_command i3status -c ~/.i3/i3status.conf
+        status_command i3blocks
+	# status_command i3status -c ~/.i3/i3status.conf
 }
 
 bindsym XF86AudioLowerVolume exec /usr/bin/amixer set Master 5-
@@ -168,8 +169,8 @@ bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -steps 1 -dec 10
 bindsym XF86TouchpadToggle exec /home/vire/.i3/toggle-touchpad.sh # toggle touchpad
 
 exec --no-startup-id parcellite
-exec --no-startup-id dropobox start
-exec --no-startup-id nm-aplet
+exec --no-startup-id dropbox start
+exec --no-startup-id nm-applet
 exec --no-startup-id redshift-gtk
 
 # Power control

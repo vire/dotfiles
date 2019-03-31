@@ -13,6 +13,7 @@ export HISTCONTROL=ignoreboth:erasedups
 export ESLINT_AUTOFIX=false
 export EDITOR=nvim
 
+alias cat='bat'
 alias y='yarn'
 alias yb='yarn build'
 alias yl='yarn lint'
@@ -30,7 +31,12 @@ mountGDrive() {
   google-drive-ocamlfuse -debug ~/google-drive
 }
 
+mpegToWebm() {
+  echo "input is: $1"
+  echo "output is: $2"
 
+  ffmpeg -i "$1" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a librivox "$2"
+}
 setopt HIST_IGNORE_ALL_DUPS
 export PATH="/home/vire/bin:./node_modules/.bin:$PATH"
 # Set list of themes to load
