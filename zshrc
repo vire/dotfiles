@@ -32,13 +32,13 @@ alias yui='yarn upgrade-interactive --latest'
 #  google-drive-ocamlfuse -debug ~/google-drive
 #}
 
-#mpegToWebm() {
-#  echo "input is: $1"
-#  echo "output is: $2"
-#
-# ffmpeg -i "$1" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a librivox "$2"
-#}
-# setopt HIST_IGNORE_ALL_DUPS
+mpegToWebm() {
+  echo "input is: $1"
+  echo "output is: $2"
+
+  ffmpeg -i "$1" -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a librivox "$2"
+}
+
 export PATH="/home/vire/bin:./node_modules/.bin:$PATH"
 
 # Set list of themes to pick from when loading at random
@@ -137,3 +137,10 @@ alias nautilus="nautilus --no-desktop"
 alias saud="sudo apt-get update"
 alias saug="sudo apt-get upgrade"
 
+# Convert video to gif file.
+# Usage: video2gif video_file (scale) (fps)
+video2gif() {
+  ffmpeg -y -i "${1}" -vf fps=${3:-10},scale=${2:-320}:-1:flags=lanczos,palettegen "${1}.png"
+  ffmpeg -i "${1}" -i "${1}.png" -filter_complex "fps=${3:-10},scale=${2:-320}:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1}".gif
+  rm "${1}.png"
+}

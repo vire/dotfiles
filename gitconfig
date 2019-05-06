@@ -1,3 +1,6 @@
 [user]
 	email = viliam.elischer@gmail.com
 	name = Viliam Elischer
+[alias]
+	fap = fetch --all --prune
+	    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
